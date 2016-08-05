@@ -16,5 +16,9 @@ array_map(
     function ($file) {
         require($file);
     },
-    glob(FOX_PATH.DIRECTORY_SEPARATOR.'*.php')
+    preg_grep(
+        '/'.basename(__FILE__).'$/',
+        glob(FOX_PATH.DIRECTORY_SEPARATOR.'*.php'),
+        PREG_GREP_INVERT
+    )
 );
