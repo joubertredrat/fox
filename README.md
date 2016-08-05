@@ -29,4 +29,5 @@ request => index.php => router | list-admin == listAdmin()  | => Controller\User
 ```
 
 #### Todo 
-* [ ] provide this into `composer create-project`
+* [ ] Provide this into `composer create-project`.
+* [ ] Configure router to work without rewrite option, for use with nginx or php webserver as example.
