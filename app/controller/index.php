@@ -1,8 +1,8 @@
 <?php
 /**
- * Controller das galerias do app
+ * Sample Fox controller
  *
- * @author Joubert <eu@redrat.com.br>
+ * @author Joubert <eu+fox@redrat.com.br>
  */
 
 namespace Fox\Controller;
