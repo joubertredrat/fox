@@ -9,10 +9,10 @@
 
 namespace Fox;
 
-define('APP_PATH', __DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'app');
-define('CONFIG_PATH', APP_PATH.DIRECTORY_SEPARATOR.'conf');
-define('MODEL_PATH', APP_PATH.DIRECTORY_SEPARATOR.'model');
-define('VIEW_PATH', APP_PATH.DIRECTORY_SEPARATOR.'view');
-define('CONTROLLER_PATH', APP_PATH.DIRECTORY_SEPARATOR.'controller');
-define('LOG_PATH', APP_PATH.DIRECTORY_SEPARATOR.'logs');
-define('STORE_PATH', APP_PATH.DIRECTORY_SEPARATOR.'store');
+define('APP_PATH',        getValidPath(__DIR__, '..', 'app'));
+define('CONFIG_PATH',     getValidPath(APP_PATH, 'conf'));
+define('MODEL_PATH',      getValidPath(APP_PATH, 'model'));
+define('VIEW_PATH',       getValidPath(APP_PATH, 'view'));
+define('CONTROLLER_PATH', getValidPath(APP_PATH, 'controller'));
+define('LOG_PATH',        getValidPath(APP_PATH, 'logs'));
+define('STORE_PATH',      getValidPath(APP_PATH, 'store'));

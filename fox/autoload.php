@@ -9,8 +9,7 @@
 
 namespace Fox;
 
-$composer_autoload = FOX_PATH.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'vendor'.
-DIRECTORY_SEPARATOR.'autoload.php';
+$composer_autoload = getValidPath(FOX_PATH, '..', 'vendor', 'autoload.php');
 if (file_exists($composer_autoload)) {
     require($composer_autoload);
 }
@@ -18,6 +17,6 @@ if (file_exists($composer_autoload)) {
 spl_autoload_register(function ($class) {
     if (strpos($class, __NAMESPACE__.'\\Model\\') === 0) {
         $name = substr($class, strlen(__NAMESPACE__.'\\Model\\'));
-        require(MODEL_PATH.DIRECTORY_SEPARATOR.$name.'.php');
+        require(getValidPath(MODEL_PATH, $name.'.php'));
     }
 });

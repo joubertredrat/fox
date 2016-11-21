@@ -24,7 +24,7 @@ class Config
     public static function loadEnv()
     {
         if (self::envExist()) {
-            $envfile = file(CONFIG_PATH.DIRECTORY_SEPARATOR.self::ENVFILE);
+            $envfile = file(getValidPath(CONFIG_PATH, self::ENVFILE));
 
             foreach ($envfile as $line) {
                 putenv(trim($line));
@@ -39,7 +39,7 @@ class Config
      */
     public static function envExist()
     {
-        return file_exists(CONFIG_PATH.DIRECTORY_SEPARATOR.self::ENVFILE);
+        return file_exists(getValidPath(CONFIG_PATH, self::ENVFILE));
     }
 
     /**
@@ -62,7 +62,7 @@ class Config
     public static function writeEnv(Array $values)
     {
         if (!self::envExist()) {
-            file_put_contents(CONFIG_PATH.DIRECTORY_SEPARATOR.self::ENVFILE, implode(PHP_EOL, $values));
+            file_put_contents(getValidPath(CONFIG_PATH, self::ENVFILE, implode(PHP_EOL, $values)));
         }
     }
 }

@@ -21,7 +21,7 @@ class Router
         if (!isset($_SERVER['QUERY_STRING']) || $_SERVER['QUERY_STRING'] == "") {
             return 'index';
         }
-        
+
         $uri = substr($_SERVER['QUERY_STRING'], 1);
 
         if (substr($uri, strlen($uri) - 1) == '/') {
@@ -67,10 +67,10 @@ class Router
                 break;
         }
 
-        require(CONTROLLER_PATH.DIRECTORY_SEPARATOR.$class.'.php');
+        require(getValidPath(CONTROLLER_PATH, $class.'.php'));
         self::formatClassCall($class);
         self::formatMethodCall($method);
-        
+
         $Controller = new $class();
         if ($args) {
             switch (count($args)) {

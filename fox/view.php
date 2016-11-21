@@ -24,6 +24,6 @@ class View
             extract($args);
         }
         $view = str_replace('\\', '/', $view);
-        require(VIEW_PATH.DIRECTORY_SEPARATOR.$view.'.php');
+        require(getValidPath(VIEW_PATH, $view.'.php'));
     }
 }
