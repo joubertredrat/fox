@@ -20,7 +20,7 @@ class Exception extends \Exception
     public function __construct($msg)
     {
         file_put_contents(
-            LOG_PATH.DIRECTORY_SEPARATOR.'error.log',
+            getValidPath(LOG_PATH, 'error.log'),
             date('Y-m-d H:i:s').' - '.trim($msg).PHP_EOL,
             FILE_APPEND
         );
