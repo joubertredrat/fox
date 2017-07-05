@@ -1,24 +1,24 @@
 ## Fox
 
-Fox is a micro framework MVC in PHP for simple and fast build small applications. It emerged from a dark time, when I needed to do a small test and my internet wasn't working, away from the contemporary world with a modern composer and very nice libraries... but, solved problem :)
+Fox is a MVC micro-framework written in PHP for building fast, simple and small applications. It emerged from a dark season, when I had issues with my internet connection and needed to do a simple test. Even away from contemporary world, from composer and from modern and cool libraries, I could still solve my problem :)
 
 #### Install
 
 * `git clone https://github.com/joubertredrat/fox.git`
-* Point your apache to a `public` folder and done, is working.
+* In your apache installation, set `public` folder as your document root and done, it's working!
 
-On future I will provide this as `composer create-project`
+In a near future, I will provide `Fox` through `composer create-project`
 
 #### Features
-* Extreme very slim, `fox` folder have only 124Kb.
-* Don't have external libraries, all was written in pure PHP.
-* Dynamic router to controller, see [How to work?](#how-to-work).
-* Composer compatible, you can add your library without problems.
-* Controller and Model is OOP (maybe in future View can be too).
+* Extremely slim: `fox` directory's size is only 124 KB.
+* Written in pure PHP: you don't need any external library to get it running.
+* Dynamic router to controller, (see [How does it work?](#how-does-it-work).
+* Composer friendly: you can add any library you want without trouble.
+* Object-Oriented Controller and Model (and View, maybe sometime later).
 
-#### How to work?
+#### How does it work?
 
-Fox have Dynamic router based on uri request on public index, as as shown below:
+Fox has a Dynamic router, based on uri requests into public/index.php, as shown below:
 ```
 /users/list-admin/br = request
                                 ____________________________
@@ -28,6 +28,7 @@ request => index.php => router | list-admin == listAdmin()  | => Controller\User
                                |____________________________|
 ```
 
-#### Todo 
-* [ ] Provide this into `composer create-project`.
-* [ ] Configure router to work without rewrite option, for use with nginx or php webserver as example.
+#### Todo
+* [ ] Provide this through `composer create-project`.
+* [ ] Decouple routing from Apache's mod-rewrite, so it could run with Nginx or PHP built-in webserver, for example.
+* [ ] Refactor View to OOP aproach.
