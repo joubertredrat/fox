@@ -67,7 +67,12 @@ class Router
                 break;
         }
 
-        require(getValidPath(CONTROLLER_PATH, $class.'.php'));
+        if(!file_exists(getValidPath(CONTROLLER_PATH, $class.'.php')))
+		{
+			trigger_error("Controller does not exist");
+		}
+
+		require(getValidPath(CONTROLLER_PATH, $class.'.php'));
         self::formatClassCall($class);
         self::formatMethodCall($method);
 
@@ -85,6 +90,10 @@ class Router
                     break;
             }
         } else {
+			if(!method_exists($Controller, $method))
+			{
+				trigger_error("Page not found");
+			}
             $Controller->$method();
         }
     }
